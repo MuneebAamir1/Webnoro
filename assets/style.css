@@ -1,0 +1,1200 @@
+/* General Body and HTML Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F8F9F9;
+    color: #4F5E59;
+}
+
+/* Base styles for the navbar */
+.navbar {
+    background-color: #F8F9F9;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Logo Styling */
+.navbar-logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* Navigation Links (Desktop - CRITICAL FIX HERE) */
+.nav-links-container {
+    display: flex;}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Keep this for desktop layout */
+}
+
+.nav-links li {
+    margin-left: 30px;
+    /* Initial state for load animation (links dropping from top) */
+    transform: translateY(-50px); /* Start above the visible area */
+    opacity: 0; /* Start invisible */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Transition properties */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #4F5E59;
+    font-weight: bold;
+    font-size: 1rem;
+    padding-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.3s ease;
+}
+
+/* Animating underline on hover */
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #27B89F;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Underline for the active page */
+.nav-link.active::before {
+    transform: scaleX(1);
+    background-color: #27B89F;
+    transform-origin: bottom left;
+}
+
+/* Hamburger Icon */
+.hamburger-icon {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #2C2C2C;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Mobile Responsiveness for Navbar */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .navbar-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+    }
+
+    .hamburger-icon {
+        display: block; /* Show on mobile */
+        margin-left: auto;
+    }
+
+    .nav-links-container {
+        display: none; /* Initially hidden on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #EDF3F2;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        transform: translateY(-10px); /* Slight initial offset for container dropdown */
+        opacity: 0;
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    }
+
+    .nav-links-container.active {
+        display: flex; /* Show when active */
+        transform: translateY(0); /* Slide down */
+        opacity: 1;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+        /* DO NOT set transform/opacity here. Let the global rule handle initial state
+           and JS handle the animation, and nav-links-container.active handle overall display. */
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Hero Section Styles (Updated) --- */
+.hero-section {
+    /* Adjusted background-position to show upper part of the image */
+    background: url('../img/hero-bg.png') no-repeat center bottom/cover; /* Key change: 'bottom' for vertical position */
+    background-color: #EDF3F2;
+    height: 89vh;
+    display: flex;
+    /* Changed to align items to the start to keep content at the top */
+    align-items: center; /* This centers hero-content and hero-gif-container */
+    padding-left: 5%;
+    color: #2C2C2C;
+    text-align: left;
+    position: relative; /* Ensure it's relative for absolute positioning of bubbles */
+    overflow: hidden; /* Hide bubbles that go outside the section */
+    /* Use flexbox to position content and GIF side-by-side */
+    justify-content: space-between; /* Space out content and GIF */
+    padding-right: 5%; /* Add padding on the right for the GIF */
+}
+
+/* Optional: Add an overlay for better text readability if image is busy */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    /* Ensure content takes required space */
+    flex-shrink: 0; /* Prevent content from shrinking */
+}
+
+.hero-heading {
+    font-size: 3.5rem;
+    color: #2C2C2C;
+    margin-bottom: 20px;
+}
+
+.hero-paragraph {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #4F5E59;
+    margin-bottom: 30px;
+}
+
+/* Call to Action Button */
+.cta-button {
+    display: inline-block;
+    padding: 15px 35px;
+    background: linear-gradient(to right, #27B89F, #149B87);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+
+/* CTA Button Unique Hover Effect - "Slide from right" */
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #149B87, #24A991);
+    z-index: -1;
+    transform: translateX(-100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.cta-button:hover {
+    color: #FFFFFF;
+}
+
+.cta-button:hover::before {
+    transform: translateX(0);
+}
+
+/* --- Hero GIF Styling (RE-ADDED AND CORRECTED) --- */
+.hero-gif-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    max-width: 400px; /* Give it a fixed max width to control circle size */
+    max-height: 400px; /* Match max-width for perfect circle */
+    aspect-ratio: 1 / 1; /* Ensures it's always a square, for a perfect circle */
+    border-radius: 50%; /* Make the container circular */
+    overflow: hidden; /* Hide parts of GIF that extend beyond the circle */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow for the container */
+}
+
+/* Create the dotted border using a pseudo-element */
+.hero-gif-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 6px dotted #12ad93; /* Dotted border with Primary Button Teal color */
+    border-radius: 50%; /* Make the border circular */
+    pointer-events: none; /* Allow clicks to pass through to the GIF */
+    z-index: 3; /* Ensure border is above the GIF */
+    animation: rotateBorder 20s linear infinite; /* Now only the border rotates */
+}
+
+.hero-gif {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ensures GIF covers the circular container */
+    width: 100%; /* Make GIF fill container */
+    height: 100%; /* Make GIF fill container */
+    transform: rotate(0deg); /* Explicitly prevent rotation if any inherited */
+}
+
+/* Keyframes for the rotating border animation */
+@keyframes rotateBorder {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- NEW: Bubble Animation Background for Hero Section (RE-ADDED) --- */
+.bubbles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Keep bubbles behind content and overlay */
+    pointer-events: none; /* Bubbles should not interfere with interactions */
+}
+
+.bubbles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(39, 184, 159, 0.2); /* Semi-transparent Primary Teal */
+    bottom: -150px; /* Start below the visible area */
+    animation: bubbleUp 10s infinite; /* Animation duration and loop */
+    border-radius: 50%; /* Make them circular */
+}
+
+.bubbles li:nth-child(1) {
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-duration: 15s;
+    animation-delay: 0s;
+}
+.bubbles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 12s;
+    animation-delay: 2s;
+    background-color: rgba(20, 155, 135, 0.25); /* Slightly darker teal */
+}
+.bubbles li:nth-child(3) {
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 18s;
+    animation-delay: 4s;
+}
+.bubbles li:nth-child(4) {
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-duration: 20s;
+    animation-delay: 0s;
+}
+.bubbles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-duration: 10s;
+    animation-delay: 0s;
+}
+.bubbles li:nth-child(6) {
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-duration: 20s;
+    animation-delay: 3s;
+    background-color: rgba(36, 169, 145, 0.2);
+}
+.bubbles li:nth-child(7) {
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-duration: 30s;
+    animation-delay: 5s;
+}
+.bubbles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-duration: 16s;
+    animation-delay: 8s;
+}
+.bubbles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-duration: 14s;
+    animation-delay: 2s;
+}
+.bubbles li:nth-child(10) {
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-duration: 26s;
+    animation-delay: 1s;
+    background-color: rgba(39, 184, 159, 0.15);
+}
+
+@keyframes bubbleUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        /* Removed border-radius: 0; to avoid flickering on older browsers, it should be 50% throughout */
+    }
+    100% {
+        transform: translateY(-1000px) rotate(720deg); /* Move up and rotate */
+        opacity: 0; /* Fade out as they go up */
+        /* Removed border-radius: 50%; from here too as it should be always 50% */
+    }
+}
+
+
+/* Responsive Adjustments for Hero Section */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto;
+        min-height: 82vh;
+        flex-direction: column;
+        padding: 40px 20px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-section::before {
+        background: rgba(255, 255, 255, 0.6);
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+        padding: 0 15px;
+        margin-bottom: 40px;
+    }
+
+    .hero-heading {
+        font-size: 2.2rem;
+        line-height: 1.3;
+    }
+
+    .hero-paragraph {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .hero-gif-container {
+        max-width: 250px; /* Smaller on mobile */
+        max-height: 250px; /* Smaller on mobile */
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Further adjustments for very small screens if needed (removed duplicate block) */
+@media (max-width: 480px) {
+    .hero-heading {
+        font-size: 1.8rem;
+    }
+    .hero-paragraph {
+        font-size: 0.9rem;
+    }
+}
+
+/* --- Typing Animation Cursor Style --- */
+.typing-animation-text {
+    position: relative; /* Needed for positioning the pseudo-element cursor */
+    display: inline-block; /* Essential for span to contain cursor properly */
+    text-transform: uppercase;
+    color: #0b6253;
+    font-size: 1.3rem;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Use quotes for multi-word font names */
+}
+
+.typing-animation-text::after {
+    content: '|'; /* The cursor character */
+    animation: blink-caret 0.4s step-end infinite; /* Blinking animation */
+    margin-left: 3px; /* Space between text and cursor */
+    color: #4F5E59; /* Body Text color for cursor */
+}
+
+@keyframes blink-caret {
+    from, to { color: transparent }
+    50% { color: #4F5E59; } /* Body Text color for cursor blink */
+}
+
+/* --- Our Expertise Section Styles --- */
+/* --- Our Expertise Section Styles --- */
+/* --- Our Expertise Section Styles (UPDATED FOR EYE-CATCHING DIAGONAL BACKGROUND) --- */
+.expertise-section {
+    background-color: transparent; /* No direct background on the section itself */
+    padding: 80px 20px;
+    text-align: center;
+    position: relative; /* Crucial for positioning pseudo-elements */
+    overflow: hidden; /* Important to clip pseudo-elements to the section boundaries */
+    z-index: 0; /* Ensures content is above backgrounds */
+}
+
+/* Pseudo-element for the top-left diagonal background */
+.expertise-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Will cover the whole section initially */
+    background: linear-gradient(135deg, #F8F9F9 50%, #EDF3F2 50%); /* Diagonal split */
+    /* background-color: #F8F9F9; /* Fallback if gradient isn't supported */
+    transform-origin: top left; /* Pivot point for potential animation if needed */
+    z-index: -1; /* Place behind content */
+}
+
+/* Ensure content is above the background layers */
+.expertise-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Brings content above pseudo-elements */
+    z-index: 1; /* Higher z-index than pseudo-elements */
+}
+.section-heading {
+    font-size: 2.8rem;
+    color: #2C2C2C;
+    margin-bottom: 60px;
+    position: relative;
+    display: inline-block; /* To allow pseudo-element underline */
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px; /* Adjust as needed for spacing */
+    transform: translateX(-50%);
+    width: 80px; /* Length of the underline */
+    height: 4px;
+    background-color: #27B89F; /* Teal underline */
+    border-radius: 2px;
+}
+
+
+.expertise-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between cards */
+    margin-bottom: 60px; /* Space below grid before button */
+    justify-content: center; /* Center cards if there are fewer columns */
+    align-items: stretch; /* Make cards stretch to same height */
+}
+
+.expertise-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Soft shadow */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out; /* For hover effect */
+    will-change: transform, box-shadow; /* Optimize for animation */
+}
+
+/* Hover Effect for cards */
+.expertise-card:hover {
+    transform: translateY(-8px); /* Slight lift */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Shadow grow */
+}
+
+.card-icon {
+    width: 60px; /* Size of SVG icon container */
+    height: 60px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-out; /* Optional: icon wiggle on hover */
+     /* Animation properties */
+animation: float 3s ease-in-out infinite, glowPulse 2.5s ease-in-out infinite;
+}
+.expertise-card:nth-of-type(1) .card-icon {
+  animation-delay: 0s;
+}
+.expertise-card:nth-of-type(2) .card-icon {
+  animation-delay: 0.5s;
+}
+.expertise-card:nth-of-type(3) .card-icon {
+  animation-delay: 1s;
+}
+.expertise-card:nth-of-type(4) .card-icon {
+  animation-delay: 1.5s;
+}
+.expertise-card:nth-of-type(5) .card-icon {
+  animation-delay: 0.3s;
+}
+.expertise-card:nth-of-type(6) .card-icon {
+  animation-delay: 0.8s;
+}
+
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 1px rgba(39, 184, 159, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 2px rgba(39, 184, 159, 1));
+  }
+}
+
+
+
+
+.card-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #27B89F; /* Icon color */
+    transition: fill 0.3s ease; /* For icon color change on hover */
+}
+
+/* Icon color shift on card hover */
+.expertise-card:hover .card-icon svg {
+    fill: #149B87; /* Darker teal on hover */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #2C2C2C;
+    margin-bottom: 15px;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: #4F5E59;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows descriptions of different lengths to push "Read More" to bottom */
+}
+
+.card-read-more {
+    text-decoration: none;
+    color: #27B89F; /* Teal color for "READ MORE" */
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 3px;
+    transition: color 0.3s ease;
+}
+
+.card-read-more::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #27B89F;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-out;
+}
+
+.card-read-more:hover {
+    color: #149B87; /* Darker teal on hover */
+}
+
+.card-read-more:hover::after {
+    transform: scaleX(1);
+}
+
+/* Explore More Button (inherits from .cta-button) */
+.explore-more-button {
+    margin-top: 40px; /* Space between grid and button */
+    display: inline-block; /* Ensure it respects text-align: center; from parent */
+}
+
+
+/* Responsive Adjustments for Expertise Section */
+@media (max-width: 992px) {
+    .expertise-section {
+        padding: 60px 20px;
+    }
+
+    .section-heading {
+        font-size: 2.3rem;
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .expertise-section {
+        padding: 50px 15px;
+    }
+
+    .section-heading {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .expertise-cards-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+        gap: 25px;
+    }
+
+    .expertise-card {
+        padding: 25px;
+    }
+
+    .card-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+
+    .card-description {
+        font-size: 0.9rem;
+    }
+
+    .explore-more-button {
+        margin-top: 30px;
+        padding: 12px 25px; /* Smaller padding for mobile CTA */
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-heading {
+        font-size: 1.8rem;
+    }
+
+    .section-heading::after {
+        width: 60px;
+    }
+}
+
+/* --- The Work We Have Done Section Styles --- */
+/* In assets/style.css */
+.work-section {
+    background-color: #F8F9F9; /* Make absolutely sure this is here */
+    padding: 80px 0;
+    text-align: center;
+    position: relative; /* CRITICAL */
+    overflow: hidden; /* CRITICAL */
+}
+/* --- Animating Background Blobs --- */
+.work-section::before,
+.work-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px); /* RE-ENABLE THIS NOW */
+    opacity: 0.6;
+    z-index: 0; /* <--- CHANGE THIS FROM -1 TO 0 */
+}
+
+/* RE-ENABLE your original gradient backgrounds now */
+.work-section::before {
+    width: 400px;
+    height: 400px;
+    top: -100px;
+    left: -150px;
+    background: radial-gradient(circle at center, #A8E6CF, #27B89F); /* RE-ENABLE THIS */
+    /* background-color: #A8E6CF; */ /* DELETE THIS TEMPORARY LINE */
+    animation: morphBlob1 8s infinite alternate ease-in-out;
+}
+
+.work-section::after {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -100px;
+    background: radial-gradient(circle at center, #27B89F, #EDF3F2); /* RE-ENABLE THIS */
+    /* background-color: #27B89F; */ /* DELETE THIS TEMPORARY LINE */
+    animation: morphBlob2 10s infinite alternate-reverse ease-in-out;
+}
+/* --- Keyframes for Blob Animations --- */
+/* --- Keyframes for Blob Animations (ADJUSTED) --- */
+@keyframes morphBlob1 {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+    25% {
+        transform: translate(20px, -15px) scale(1.08); /* Reduced movement, slightly smaller scale */
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-10px, 30px) scale(0.95); /* Reduced movement, slightly larger scale */
+        opacity: 0.55;
+    }
+    75% {
+        transform: translate(-25px, 10px) scale(1.03); /* Reduced movement, slightly smaller scale */
+        opacity: 0.68;
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.6;
+    }
+}
+
+@keyframes morphBlob2 {
+    0% {
+        transform: translate(0, 0) scale(1.05);
+        opacity: 0.6;
+    }
+    30% {
+        transform: translate(-30px, 20px) scale(0.95); /* Reduced movement, slightly larger scale */
+        opacity: 0.55;
+    }
+    60% {
+        transform: translate(10px, -25px) scale(1.08); /* Reduced movement, slightly smaller scale */
+        opacity: 0.7;
+    }
+    100% {
+        transform: translate(0, 0) scale(1.05);
+        opacity: 0.6;
+    }
+}
+.work-container {
+    max-width: 1200px; /* Aligns with other main containers */
+    margin: 0 auto;
+    padding: 0 20px; /* Side padding for content */
+    position: relative; /* ADD THIS LINE */
+    z-index: 1; /* ADD THIS LINE - ensures content is above the blobs (z-index: -1) */
+}
+
+.work-heading {
+    font-size: 2.8rem;
+    color: #2C2C2C;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+.work-heading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px; /* Adjust as needed for spacing */
+    transform: translateX(-50%);
+    width: 22rem; /* Length of the underline */
+    height: 4px;
+    background-color: #27B89F; /* Teal underline */
+    border-radius: 2px;
+}
+.work-intro {
+    font-size: 1.1rem;
+    color: #2C2C2C;
+    max-width: 800px;
+    margin: 0 auto 60px auto; /* Centered, space below */
+    line-height: 1.6;
+}
+
+.project-showcase-wrapper {
+    position: relative;
+    margin-bottom: 60px; /* Space below the scroll area */
+    padding: 0 20px; /* Ensure space for arrows without pushing inner content */
+}
+
+.project-scroll-container {
+    display: flex;
+    gap: 30px; /* Space between project modules */
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    padding-bottom: 20px; /* Space for scrollbar thumb */
+    scroll-behavior: smooth; /* Smooth scrolling with JS or keyboard nav */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+
+    /* Hide scrollbar for a cleaner look (optional) */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.project-scroll-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+
+.project-module {
+    flex-shrink: 0; /* Prevent modules from shrinking */
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden; /* Ensure media and overlay stay within bounds */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* For hover */
+    display: flex; /* For overlay centering */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Base dimensions for modules - will be overridden by specific classes */
+.project-module {
+    width: 400px; /* Default width */
+    height: 300px; /* Default height */
+}
+
+/* Dynamic Sizing for Modules */
+.project-module.wide {
+    width: 550px;
+    height: 350px;
+}
+
+.project-module.tall {
+    width: 300px;
+    height: 500px;
+}
+
+.project-module.small {
+    width: 280px;
+    height: 280px;
+}
+
+/* Adjust aspect ratios and widths as needed to get the mosaic look */
+/* Example: a really wide module */
+/* .project-module.extra-wide {
+    width: 700px;
+    height: 380px;
+} */
+
+
+.project-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Covers the module area without distortion */
+    display: block;
+    transition: transform 0.3s ease; /* For slight zoom on hover */
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(168, 230, 207, 0.9); /* Soft mint green overlay with transparency */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 20px;
+}
+
+.project-module:hover .project-overlay {
+    opacity: 1; /* Show overlay on hover */
+}
+
+.project-module:hover .project-media {
+    transform: scale(1.05); /* Slight zoom on media on hover */
+}
+
+.project-title {
+    font-size: 1.8rem;
+    color: #2C2C2C; /* Dark gray */
+    margin-bottom: 10px;
+}
+
+.project-keywords {
+    font-size: 1rem;
+    color: #2C2C2C; /* Dark gray */
+    opacity: 0.8;
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: #2C2C2C; /* Dark gray icon */
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10; /* Above projects */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-arrow:hover {
+    background-color: #A8E6CF; /* Soft mint green on hover */
+    color: #2C2C2C; /* Keep text dark gray on hover */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.nav-arrow.left-arrow {
+    left: 0px; /* Adjust as needed */
+}
+
+.nav-arrow.right-arrow {
+    right: 0px; /* Adjust as needed */
+}
+
+/* View All Projects Button (inherits from .cta-button) */
+.view-all-projects-button {
+    /* Override existing cta-button styles for this specific button */
+    background: #A8E6CF; /* Soft mint green background */
+    color: #2C2C2C; /* Dark gray text */
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    position: relative; /* For the custom hover effect */
+    overflow: hidden;
+    z-index: 1;
+}
+
+.view-all-projects-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #27B89F; /* Darker mint green for hover background */
+    z-index: -1;
+    transform: scaleX(0); /* Start hidden */
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.view-all-projects-button:hover {
+    color: #F8F9F9; /* Change text to light color on hover */
+}
+
+.view-all-projects-button:hover::before {
+    transform: scaleX(1); /* Reveal background on hover */
+}
+
+
+/* Responsive Adjustments for Work Section */
+@media (max-width: 1200px) {
+    .project-showcase-wrapper {
+        padding: 0 20px; /* Add padding to wrapper to keep arrows in view */
+    }
+}
+
+@media (max-width: 992px) {
+    .work-heading {
+        font-size: 2.3rem;
+    }
+    .work-intro {
+        font-size: 1rem;
+    }
+
+    /* Adjust module sizes for slightly smaller screens */
+    .project-module.wide {
+        width: 480px;
+        height: 300px;
+    }
+
+    .project-module.tall {
+        width: 250px;
+        height: 450px;
+    }
+
+    .project-module.standard {
+        width: 350px;
+        height: 280px;
+    }
+
+    .project-module.small {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .work-section {
+        padding: 60px 0;
+    }
+    .work-heading {
+        font-size: 2rem;
+    }
+    .work-intro {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+    }
+
+    /* Adjust module sizes more aggressively for mobile */
+    .project-module {
+        width: 320px; /* Default for mobile */
+        height: 240px;
+    }
+    .project-module.wide {
+        width: 380px;
+        height: 280px;
+    }
+    .project-module.tall {
+        width: 200px;
+        height: 350px;
+    }
+    .project-module.standard {
+        width: 320px;
+        height: 240px;
+    }
+    .project-module.small {
+        width: 180px;
+        height: 180px;
+    }
+
+    .project-showcase-wrapper {
+        padding: 0 15px; /* Smaller padding for mobile */
+    }
+
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .view-all-projects-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .work-heading {
+        font-size: 1.8rem;
+    }
+    .work-intro {
+        font-size: 0.9rem;
+    }
+}
+
+/* --- New Square Background Element (CORRECTED) --- */
+.square-background-element {
+    content: ''; /* Not a pseudo-element, but often helpful for consistency */
+    position: absolute;
+    width: 350px; /* Size of the square */
+    height: 350px;
+    top: -50px; /* Position it slightly off-screen to the top */
+    right: -50px; /* Position it slightly off-screen to the right */
+    
+    /* --- KEY CHANGE HERE: Using background-image for your PNG --- */
+    background-image: url('../img/square.svg'); /* <--- IMPORTANT: Adjust this path if your image is elsewhere */
+    background-size: contain; /* Ensures the whole image fits within the element */
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+    background-position: center; /* Centers the image within its area */
+    
+    border-radius: 0; /* <--- Set to 0 or remove for sharper corners of the image itself, if desired, or keep 20% for subtle rounding of the element's container */
+    filter: blur(2px); /* Apply blur similar to blobs */
+    opacity: 0.5 !important; /* Adjust transparency */
+    z-index: 0; /* Same z-index as blobs, behind content */
+    animation: rotateSquare 18s infinite linear alternate; /* New animation for rotation and subtle movement */
+}
+
+/* Keyframes for the new square animation (these remain unchanged) */
+@keyframes rotateSquare {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translate(-20px, 15px) rotate(10deg) scale(1.03);
+        opacity: 0.55;
+    }
+    50% {
+        transform: translate(0, 30px) rotate(0deg) scale(0.98);
+        opacity: 0.45;
+    }
+    75% {
+        transform: translate(20px, -15px) rotate(-10deg) scale(1.05);
+        opacity: 0.52;
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        opacity: 0.5;
+    }
+}

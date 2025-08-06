@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services - Webnoro</title>
+  <link rel="stylesheet" href="assets/projects.css">
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /> 
+
+<style>
+.section-heading {
+    font-size: 3.2rem;
+    color: #2C2C2C; /* Your dark grey for headings */
+    margin-bottom: 30px;
+    margin-left: 450px;
+    position: relative;
+    padding-bottom: 15px; /* Space for the underline */
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    transform: translateX(-50%);
+    width: 80px; /* Short underline length */
+    height: 4px;
+    background-color: #27B89F; /* Your primary teal */
+    border-radius: 2px;
+}
+</style>
+</head>
+
+<body>
+
+     <header class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <img src="img/logo.png" alt="Your Logo">
+            </a>
+
+            <button class="hamburger-icon" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="services.html" class="nav-link active">Services</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+<section class="split-hero-section">
+    <div class="particle-background">
+        <span class="particle"></span><span class="particle"></span>
+        <span class="particle"></span><span class="particle"></span>
+        <span class="particle"></span><span class="particle"></span>
+        <span class="particle"></span><span class="particle"></span>
+        <span class="particle"></span><span class="particle"></span>
+    </div>
+
+    <div class="split-hero-left">
+        <div class="glass-panel">
+            <h1 class="headline">Designing the Future, Today.</h1>
+            <p class="sub-text">We craft cutting-edge digital experiences that blend artistic vision with technical excellence, propelling brands into their next chapter.</p>
+            <a href="#" class="neon-cta-button"><span>Initiate Contact</span></a>
+            <div class="social-icons-strip">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <svg class="mobile-wave-divider" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+      <path fill="#050d0c" fill-opacity="1" d="M0,64L80,85.3C160,107,320,149,480,149.3C640,149,800,107,960,90.7C1120,75,1280,85,1360,90.7L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+    </svg>
+
+
+    <div class="split-hero-right">
+        <div class="image-wrapper">
+            <div class="image-glow"></div>
+            <img src="https://placehold.co/800x500/111827/34D399?text=Project+Orion" alt="Featured Project Screenshot">
+        </div>
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Entry Animation via Intersection Observer ---
+    const heroSection = document.querySelector('.split-hero-section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                heroSection.classList.add('is-visible');
+                observer.unobserve(heroSection); // Animate only once
+            }
+        });
+    }, { threshold: 0.1 });
+    observer.observe(heroSection);
+
+
+    // --- Set background for the image glow effect ---
+    const imageWrapper = document.querySelector('.image-wrapper');
+    const imageGlow = document.querySelector('.image-glow');
+    if (imageWrapper && imageGlow) {
+        const imageUrl = imageWrapper.querySelector('img').src;
+        imageGlow.style.backgroundImage = `url(${imageUrl})`;
+    }
+
+
+    // --- Magnetic Button Effect ---
+    const ctaButton = document.querySelector('.neon-cta-button');
+    if (ctaButton) {
+        const buttonText = ctaButton.querySelector('span');
+        ctaButton.addEventListener('mousemove', (e) => {
+            const rect = ctaButton.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            // Move the text inside the button
+            buttonText.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+        });
+
+        ctaButton.addEventListener('mouseleave', () => {
+            buttonText.style.transform = 'translate(0, 0)';
+        });
+    }
+});
+</script>
+
+
+
+    <section class="showcase-section">
+        <h1 class="section-heading">Featured Creations</h1>
+
+        <div class="horizontal-showcase">
+            
+            <div class="showcase-card" style="--offset-y: -20px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x350/1F2937/9CA3AF?text=Project+Atlas" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Atlas</h3>
+                        <p>A global data visualization platform with real-time analytics and reporting features.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-card" style="--offset-y: 25px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x400/1F2937/9CA3AF?text=Project+Nova" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Nova</h3>
+                        <p>A next-generation SaaS application designed for creative team collaboration and workflow management.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card" style="--offset-y: -30px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x350/1F2937/9CA3AF?text=Project+Cygnus" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Cygnus</h3>
+                        <p>An e-commerce storefront with a focus on immersive user experience and high conversion rates.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-card" style="--offset-y: 15px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x380/1F2937/9CA3AF?text=Project+Orion" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Orion</h3>
+                        <p>A desktop application UI for a complex video editing suite, prioritizing usability and speed.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card" style="--offset-y: -10px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x360/1F2937/9CA3AF?text=Project+Vega" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Vega</h3>
+                        <p>A custom content management system built from the ground up for a major publishing house.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-card" style="--offset-y: 30px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x400/1F2937/9CA3AF?text=Project+Lyra" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Lyra</h3>
+                        <p>A mobile-first web app that connects local artists with galleries and collectors.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const showcase = document.querySelector('.horizontal-showcase');
+
+        // --- Draggable Scrolling ---
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        showcase.addEventListener('mousedown', (e) => {
+            isDown = true;
+            showcase.style.cursor = 'grabbing';
+            startX = e.pageX - showcase.offsetLeft;
+            scrollLeft = showcase.scrollLeft;
+        });
+
+        showcase.addEventListener('mouseleave', () => {
+            isDown = false;
+            showcase.style.cursor = 'grab';
+        });
+
+        showcase.addEventListener('mouseup', () => {
+            isDown = false;
+            showcase.style.cursor = 'grab';
+        });
+
+        showcase.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - showcase.offsetLeft;
+            const walk = (x - startX) * 2; // The multiplier affects drag speed
+            showcase.scrollLeft = scrollLeft - walk;
+        });
+        
+        // --- 3D Tilt & Glowing Border Effect ---
+        const cards = document.querySelectorAll('.showcase-card');
+        cards.forEach(card => {
+            const cardInner = card.querySelector('.card-inner');
+            
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // For glowing border
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                // For 3D tilt
+                const { width, height } = rect;
+                const rotateX = (y - height / 2) / 20; // Adjust divisor for less/more tilt
+                const rotateY = (width / 2 - x) / 20;
+                cardInner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                cardInner.style.transform = 'rotateX(0) rotateY(0)';
+            });
+        });
+    });
+    </script>
+
+
+
+
+<section id="chaos-cta-section">
+  <!-- Noisy Background -->
+  <div class="noise-overlay"></div>
+
+  <!-- Phrases and CTA Button -->
+  <div class="cta-content">
+    <div class="cta-text">
+      <span class="phrase glitch float" data-text="Think you’ve got a crazy project idea?">Think you’ve got a crazy project idea?</span>
+      <span class="phrase glitch float" data-text="Challenge me, I love solving problems.">Challenge me, I love solving problems.</span>
+    </div>
+    <a href="contact.html" class="cta-button">⚡ Challenge Me ⚔️</a>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h2>Webnoro</h2>
+      <p>Crafting modern digital experiences with design and performance in mind.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">UI/UX Design</a></li>
+        <li><a href="#">SEO Optimization</a></li>
+        <li><a href="#">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>Email: hello@webnoro.com</p>
+      <p>WhatsApp: +123 456 789</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Webnoro. All rights reserved.</p>
+  </div>
+</footer>
+    <script src="assets/script.js"></script>
+</body>
+</html>

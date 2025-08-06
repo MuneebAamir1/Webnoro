@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Webnoro</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    
+       <header class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <img src="img/logo.png" alt="Your Logo">
+            </a>
+
+            <button class="hamburger-icon" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-links-container">
+                <ul class="nav-links">
+                   <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About Us</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <section class="contact-hub-section">
+        <div class="contact-hub-container">
+            <div class="contact-info-wrapper">
+                <h2 class="contact-section-heading">Get in Touch</h2>
+                <p class="contact-section-subheading">Have a project in mind? We’d love to hear from you. Fill out the form or use the contact details below.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Islamabad, Pakistan</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+92 336 0465208</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>muneebaamir2006@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <form id="contact-form">
+                    <div class="form-field">
+                        <input type="text" name="from_name" id="from_name" class="form-input" placeholder=" " required>
+                        <label for="from_name" class="form-label">Full Name</label>
+                    </div>
+                    <div class="form-field">
+                        <input type="email" name="from_email" id="from_email" class="form-input" placeholder=" " required>
+                        <label for="from_email" class="form-label">Email Address</label>
+                    </div>
+                    <div class="form-field">
+                        <input type="text" name="subject" id="subject" class="form-input" placeholder=" " required>
+                        <label for="subject" class="form-label">Subject</label>
+                    </div>
+                    <div class="form-field">
+                        <textarea name="message" id="message" class="form-input" placeholder=" " rows="5" required></textarea>
+                        <label for="message" class="form-label">Your Message</label>
+                    </div>
+                    <button type="submit" class="cta-button form-submit-button">
+                        <span class="button-text">Send Message</span>
+                    </button>
+                    <p id="form-feedback"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="map-container">
+            <h2 class="section-heading">Our Location</h2>
+            <div class="map-embed-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13286.80833876605!2d73.01079205966356!3d33.63896577304292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38df95b718e07973%3A0x51c83df388143239!2sI-11%2C%20Islamabad%2C%20Pakistan!5e0!3m2!1sen!2s!4v1753814869265!5m2!1sen!2s" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+  </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is the typical timeline for a new website project?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A typical website project takes about 4-6 weeks from start to finish. This includes discovery, design, development, and launch. The exact timeline can vary depending on the project's complexity and scope.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you provide website maintenance services?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer various maintenance packages to keep your website updated, secure, and running smoothly. We can discuss a plan that fits your needs after the initial launch.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do you handle SEO for new websites?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We build all our websites with SEO best practices in mind, including clean code, mobile-first design, fast loading speeds, and proper use of meta tags. We also offer advanced SEO services for ongoing optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-connect-section">
+        <div class="social-connect-container">
+            <h2 class="section-heading">Connect Socially</h2>
+            <p class="social-connect-intro">Follow us on social media for the latest updates, tips, and behind-the-scenes content.</p>
+            <div class="social-links-grid">
+                <a href="#" class="social-card" style="--social-color: #1877F2;">
+                    <i class="fab fa-facebook-f"></i><span>Facebook</span>
+                </a>
+                <a href="#" class="social-card" style="--social-color: #1DA1F2;">
+                    <i class="fab fa-twitter"></i><span>Twitter</span>
+                </a>
+                <a href="#" class="social-card" style="--social-color: #E4405F;">
+                    <i class="fab fa-instagram"></i><span>Instagram</span>
+                </a>
+                <a href="#" class="social-card" style="--social-color: #0A66C2;">
+                    <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<footer class="main-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h2>Webnoro</h2>
+      <p>Crafting modern digital experiences with design and performance in mind.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">UI/UX Design</a></li>
+        <li><a href="#">SEO Optimization</a></li>
+        <li><a href="#">Maintenance</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p>Email: hello@webnoro.com</p>
+      <p>WhatsApp: +123 456 789</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Webnoro. All rights reserved.</p>
+  </div>
+</footer>
+    <script src="assets/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,469 @@
+/* --- Who We Are Section Styles --- */
+.who-we-are-section {
+    padding: 100px 0; /* Ample vertical padding */
+    background-color: #F8F9F9; /* Your light background color */
+    text-align: center; /* Center content within the section */
+}
+
+.who-we-are-section .container {
+    max-width: 1000px; /* Adjust max-width as per your global container */
+    margin: 0 auto; /* Center the container */
+    padding: 0 20px; /* Horizontal padding for smaller screens */
+}
+
+.section-heading {
+    font-size: 3.2rem;
+    color: #2C2C2C; /* Your dark grey for headings */
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 15px; /* Space for the underline */
+}
+
+.section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Short underline length */
+    height: 4px;
+    background-color: #27B89F; /* Your primary teal */
+    border-radius: 2px;
+}
+
+.intro-paragraph {
+    font-size: 1.1rem;
+    color: #4F5E59; /* Your secondary text color */
+    line-height: 1.7;
+    max-width: 800px; /* Control line length for readability */
+    margin: 0 auto 60px auto; /* Center paragraph and add space below */
+}
+
+.intro-paragraph strong {
+    color: #27B89F; /* Highlight your company name */
+    font-weight: 600;
+}
+
+/* Mission & Vision Grid (or differentiation points) */
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-content: center;
+    gap: 40px; /* Space between the two cards */
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.mission-card,
+.vision-card {
+    background-color: #FFFFFF; /* White background for the cards */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
+    max-width: 450px; /* Max width for each card */
+    text-align: left; /* Align text within cards to left */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid #27B89F; /* Teal top border for emphasis */
+}
+
+.mission-card:hover,
+.vision-card:hover {
+    transform: translateY(-5px); /* Subtle lift effect on hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.icon-large {
+    font-size: 2.5rem;
+    color: #27B89F; /* Primary teal for icons */
+    margin-bottom: 20px;
+    display: block; /* Ensures margin works correctly */
+}
+
+.card-title {
+    font-size: 1.6rem;
+    color: #2C2C2C; /* Dark grey for card titles */
+    margin-bottom: 15px;
+}
+
+.card-description {
+    font-size: 0.95rem;
+    color: #4F5E59; /* Secondary text color for card descriptions */
+    line-height: 1.6;
+}
+
+/* --- Responsive Adjustments for Who We Are Section --- */
+@media (max-width: 768px) {
+    .who-we-are-section {
+        padding: 70px 0;
+    }
+
+    .section-heading {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+    }
+
+    .intro-paragraph {
+        font-size: 1rem;
+        margin-bottom: 40px;
+        padding: 0 15px; /* More padding on very small screens */
+    }
+
+    .mission-vision-grid {
+        flex-direction: column; /* Stack cards vertically */
+        gap: 30px; /* Adjust gap when stacked */
+        align-items: center; /* Center stacked cards */
+    }
+
+    .mission-card,
+    .vision-card {
+        padding: 25px;
+        width: 90%; /* Take more width on smaller screens */
+        max-width: 400px; /* Ensure they don't get too wide */
+    }
+
+    .icon-large {
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .card-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .card-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-heading {
+        font-size: 2rem;
+    }
+}
+
+/* --- Team Section Styles --- */
+.team-section {
+    padding: 100px 0;
+    background-color: #EDF3F2; /* A slightly darker light background for this section */
+    text-align: center;
+}
+
+.team-intro-paragraph {
+    font-size: 1.1rem;
+    color: #4F5E59;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.team-members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 40px; /* Space between cards */
+    justify-content: center; /* Center cards if there are fewer than a full row */
+    padding: 0 20px; /* Padding for the grid itself */
+}
+
+.team-member-card {
+    background-color: #FFFFFF;
+    border-radius: 15px; /* More rounded corners for cards */
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Stronger, softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content within the card */
+    text-align: center; /* Center text within the card */
+}
+
+.team-member-card:hover {
+    transform: translateY(-8px); /* Lift effect on hover */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+.member-photo-wrapper {
+    width: 150px; /* Size of the photo container */
+    height: 150px;
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden; /* Ensure image stays within the circle */
+    margin-bottom: 25px;
+    border: 4px solid #27B89F; /* Teal border around the photo */
+    box-shadow: 0 0 0 5px rgba(39, 184, 159, 0.1); /* Subtle glow effect */
+    transition: all 0.3s ease;
+}
+
+.team-member-card:hover .member-photo-wrapper {
+    transform: scale(1.05); /* Slightly enlarge photo wrapper on card hover */
+    border-color: #149B87; /* Darker teal border on hover */
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the circle without distortion */
+    display: block;
+}
+
+.member-name {
+    font-size: 1.8rem;
+    color: #2C2C2C;
+    margin-bottom: 8px;
+}
+
+.member-role {
+    font-size: 1.1rem;
+    color: #27B89F; /* Highlight roles in primary teal */
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.member-bio {
+    font-size: 0.95rem;
+    color: #4F5E59;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Allows bio to take available space for consistent card height */
+}
+
+.member-social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px; /* Add some space above social links */
+}
+
+.social-icon {
+    font-size: 1.4rem;
+    color: #4F5E59; /* Secondary text color for icons */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #27B89F; /* Teal on hover */
+    transform: translateY(-3px); /* Subtle lift on hover */
+}
+
+
+/* --- Responsive Adjustments for Team Section --- */
+@media (max-width: 992px) {
+    .team-section {
+        padding: 80px 0;
+    }
+
+    .team-members-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust min width for tablets */
+        gap: 30px;
+    }
+
+    .member-name {
+        font-size: 1.6rem;
+    }
+
+    .member-role {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-section {
+        padding: 60px 0;
+    }
+
+    .team-members-grid {
+        grid-template-columns: 1fr; /* Stack vertically on small screens */
+        gap: 30px;
+        max-width: 400px; /* Limit width of stacked cards */
+        margin: 0 auto; /* Center the stacked cards */
+    }
+
+    .team-intro-paragraph {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+
+    .member-photo-wrapper {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+
+    .member-name {
+        font-size: 1.5rem;
+    }
+
+    .member-role {
+        font-size: 0.95rem;
+    }
+
+    .member-bio {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-section {
+        padding: 50px 0;
+    }
+
+    .team-member-card {
+        padding: 25px;
+    }
+
+    .member-photo-wrapper {
+        width: 100px;
+        height: 100px;
+    }
+
+    .member-name {
+        font-size: 1.4rem;
+    }
+}
+
+/* --- Tech Stack Section Styles --- */
+.tech-stack-section {
+    padding: 100px 0;
+    background-color: #F8F9F9; /* Your light background color */
+    text-align: center;
+}
+
+.tech-intro-paragraph {
+    font-size: 1.1rem;
+    color: #4F5E59;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+}
+
+.tech-logos-grid {
+    display: grid;
+    /* Responsive grid: 5 columns on large screens, adjusting down */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px; /* Space between logo items */
+    justify-content: center; /* Center items if they don't fill a row */
+    align-items: center;
+    padding: 0 20px;
+}
+
+.tech-logo-item {
+    background-color: #FFFFFF; /* White background for each logo card */
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 150px; /* Ensure consistent card height */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default; /* Indicate it's not a clickable link, just informative */
+    position: relative; /* For tooltip */
+    overflow: hidden; /* For animations inside */
+}
+
+.tech-logo-item:hover {
+    transform: translateY(-5px) scale(1.03); /* Subtle lift and scale on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.tech-logo-img {
+    max-width: 80px; /* Max width of the logo image itself */
+    height: auto;
+    filter: grayscale(100%); /* Start with grayscale for a futuristic look */
+    opacity: 0.7; /* Slightly desaturated */
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.tech-logo-item:hover .tech-logo-img {
+    filter: grayscale(0%); /* Full color on hover */
+    opacity: 1; /* Fully opaque on hover */
+    transform: scale(1.1); /* Slightly enlarge image on hover */
+}
+
+/* Tech Name Tooltip Effect */
+.tech-logo-name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 8px 5px;
+    background-color: rgba(39, 184, 159, 0.9); /* Primary teal with some transparency */
+    color: #FFFFFF; /* White text */
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    transform: translateY(100%); /* Initially hidden below the card */
+    transition: transform 0.3s ease;
+    opacity: 0; /* Also hide opacity */
+    pointer-events: none; /* Allows clicks to pass through when hidden */
+    z-index: 1; /* Ensure it's above other elements if needed */
+}
+
+.tech-logo-item:hover .tech-logo-name {
+    transform: translateY(0); /* Slide up on hover */
+    opacity: 1; /* Fade in on hover */
+}
+
+/* --- Responsive Adjustments for Tech Stack Section --- */
+@media (max-width: 992px) {
+    .tech-stack-section {
+        padding: 80px 0;
+    }
+
+    .tech-logos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust for smaller screens */
+        gap: 25px;
+    }
+
+    .tech-logo-img {
+        max-width: 70px;
+    }
+
+    .tech-logo-name {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-stack-section {
+        padding: 60px 0;
+    }
+
+    .tech-logos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /* Further adjust */
+        gap: 20px;
+    }
+
+    .tech-logo-item {
+        min-height: 130px;
+        padding: 15px;
+    }
+
+    .tech-logo-img {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-stack-section {
+        padding: 50px 0;
+    }
+
+    .tech-logos-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on very small screens */
+        gap: 15px;
+    }
+
+    .tech-logo-item {
+        min-height: 110px;
+        padding: 10px;
+    }
+
+    .tech-logo-img {
+        max-width: 50px;
+    }
+
+    .tech-logo-name {
+        font-size: 0.8rem;
+    }
+}

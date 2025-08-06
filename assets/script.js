@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- New: Typography Animation for Hero Paragraph ---
     const wordsToAnimate = ["responsive", "clean", "modern"];
-    const typingTextElement = document.querySelector('.typing-animation-text');
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -45,37 +44,42 @@ document.addEventListener('DOMContentLoaded', () => {
     const delayBeforeDelete = 1500; // Milliseconds to wait before backspacing
     const delayBeforeType = 500; // Milliseconds to wait before typing next word
 
+   // --- Homepage Specific: Typing Animation ---
+const typingTextElement = document.querySelector('.typing-animation-text');
+// We only run this code if the typing element exists on the page
+if (typingTextElement) {
+    const wordsToAnimate = ["responsive", "clean", "modern"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingSpeed = 150;
+    const deletingSpeed = 100;
+    const delayBeforeDelete = 1500;
+    const delayBeforeType = 500;
+
     function typeEffect() {
         const currentWord = wordsToAnimate[wordIndex];
-
         if (isDeleting) {
-            // Deleting text
             typingTextElement.textContent = currentWord.substring(0, charIndex - 1);
             charIndex--;
         } else {
-            // Typing text
             typingTextElement.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
         }
-
         let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
-
         if (!isDeleting && charIndex === currentWord.length) {
-            // Word finished typing, prepare to delete
             currentSpeed = delayBeforeDelete;
             isDeleting = true;
         } else if (isDeleting && charIndex === 0) {
-            // Word finished deleting, move to next word
             isDeleting = false;
-            wordIndex = (wordIndex + 1) % wordsToAnimate.length; // Cycle through words
+            wordIndex = (wordIndex + 1) % wordsToAnimate.length;
             currentSpeed = delayBeforeType;
         }
-
         setTimeout(typeEffect, currentSpeed);
     }
-
-    // Start the typing effect when the DOM is loaded
+    // Start the effect
     typeEffect();
+}
 
 
 // --- Project Showcase Horizontal Scroll (NEW) ---
@@ -183,5 +187,98 @@ const updateArrowVisibility = () => {
     // Also pause when user manually scrolls
     scrollContainer.addEventListener('wheel', stopAutoScroll, { once: true });
     scrollContainer.addEventListener('touchstart', stopAutoScroll, { once: true });
+}
+
+// --- Contact Page FAQ Accordion ---
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const questionButton = item.querySelector('.faq-question');
+    const answerDiv = item.querySelector('.faq-answer');
+
+    questionButton.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        
+        // Close all other items
+        faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+            otherItem.querySelector('.faq-answer').style.maxHeight = 0;
+        });
+
+        // Open the clicked item if it wasn't already active
+        if (!isActive) {
+            item.classList.add('active');
+            answerDiv.style.maxHeight = answerDiv.scrollHeight + "px";
+        }
+    });
+});
+
+// --- Contact Form with EmailJS ---
+const contactForm = document.getElementById('contact-form');
+const feedbackEl = document.getElementById('form-feedback');
+
+if (contactForm) {
+    // Initialize EmailJS with your Public Key
+    // FIND THIS IN YOUR EMAILJS ACCOUNT > ACCOUNT > API KEYS
+    emailjs.init({
+      publicKey: "Gd6RzAIhxQxCm128v", // PASTE YOUR PUBLIC KEY HERE
+    });
+
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const submitButton = this.querySelector('.form-submit-button');
+        const buttonText = submitButton.querySelector('.button-text');
+        
+        buttonText.textContent = 'Sending...';
+        submitButton.disabled = true;
+        feedbackEl.textContent = '';
+        feedbackEl.className = '';
+
+        // These IDs from your EmailJS account
+        // SERVICE ID: EMAIL SERVICES > YOUR SERVICE
+        // TEMPLATE ID: EMAIL TEMPLATES > YOUR TEMPLATE
+        const serviceID = 'service_s8v7ui7'; // PASTE YOUR SERVICE ID
+        const templateID = 'template_3oas7wd'; // PASTE YOUR TEMPLATE ID
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                buttonText.textContent = 'Sent Successfully!';
+                feedbackEl.textContent = 'Thank you! Your message has been sent.';
+                feedbackEl.classList.add('success');
+                contactForm.reset();
+                
+                setTimeout(() => {
+                    buttonText.textContent = 'Send Message';
+                    submitButton.disabled = false;
+                }, 3000);
+
+            }, (err) => {
+                buttonText.textContent = 'Send Message';
+                submitButton.disabled = false;
+                feedbackEl.textContent = 'Oops! Something went wrong. ' + JSON.stringify(err);
+                feedbackEl.classList.add('error');
+            });
+    });
+}
+
+// --- Services Page: Animate Timeline on Scroll ---
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+if (timelineItems.length > 0) {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target); // Optional: stop observing once animated
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the item is visible
+    });
+
+    timelineItems.forEach(item => {
+        observer.observe(item);
+    });
 }
 });

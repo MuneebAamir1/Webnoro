@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Project Showcase</title>
+    <style>
+        /* --- General Setup --- */
+        :root {
+            --glow-color: hsl(150, 100%, 70%);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #111827; /* Dark background for glassmorphism */
+            color: #f9fafb;
+            overflow-x: hidden;
+        }
+
+        /* --- Showcase Section --- */
+        .showcase-section {
+            width: 100%;
+            padding: 80px 0;
+        }
+
+        .showcase-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 40px;
+        }
+
+        /* --- Horizontal Scrolling Container --- */
+        .horizontal-showcase {
+            display: flex;
+            gap: 40px;
+            overflow-x: auto;
+            padding: 40px; /* Provides space for floating effect and shadows */
+            margin: 0 20px;
+            /* Snapping behavior */
+            scroll-snap-type: x mandatory;
+            /* Hides scrollbar for a cleaner look */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE and Edge */
+        }
+
+        .horizontal-showcase::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
+        }
+
+        /* --- Glassmorphic Card Styling --- */
+        .showcase-card {
+            flex: 0 0 600px; /* Fixed width, no shrinking */
+            position: relative;
+            border-radius: 16px;
+            perspective: 1000px; /* For 3D tilt effect */
+            scroll-snap-align: center; /* Snap to the center of the viewport */
+            /* Applying the staggered vertical float effect */
+            transform: translateY(var(--offset-y, 0));
+        }
+
+        .card-inner {
+            background: rgba(31, 41, 55, 0.5); /* Semi-transparent background */
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            width: 100%;
+            transition: transform 0.1s ease-out; /* Smooth transition for tilt reset */
+        }
+
+        /* --- Glowing Border on Hover --- */
+        .showcase-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 2px;
+            background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), var(--glow-color), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .showcase-card:hover::before {
+            opacity: 1;
+        }
+
+        .showcase-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* --- Card Content --- */
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            font-size: 1rem;
+            color: #d1d5db;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .card-content .demo-button {
+            display: inline-block;
+            text-decoration: none;
+            color: #111827;
+            background-color: var(--glow-color);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .card-content .demo-button:hover {
+            background-color: #fff;
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        
+        /* --- Responsive Stacking for Mobile --- */
+        @media (max-width: 768px) {
+            .horizontal-showcase {
+                display: block; /* Stack vertically */
+                margin: 0;
+                padding: 0 20px;
+            }
+            .showcase-card {
+                width: 100%;
+                margin-bottom: 30px;
+                 transform: translateY(0); /* Reset floating effect */
+            }
+            .showcase-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="showcase-section">
+        <h1 class="showcase-title">Featured Creations</h1>
+
+        <div class="horizontal-showcase">
+            
+            <div class="showcase-card" style="--offset-y: -20px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x350/1F2937/9CA3AF?text=Project+Atlas" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Atlas</h3>
+                        <p>A global data visualization platform with real-time analytics and reporting features.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-card" style="--offset-y: 25px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x400/1F2937/9CA3AF?text=Project+Nova" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Nova</h3>
+                        <p>A next-generation SaaS application designed for creative team collaboration and workflow management.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card" style="--offset-y: -30px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x350/1F2937/9CA3AF?text=Project+Cygnus" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Cygnus</h3>
+                        <p>An e-commerce storefront with a focus on immersive user experience and high conversion rates.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-card" style="--offset-y: 15px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x380/1F2937/9CA3AF?text=Project+Orion" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Orion</h3>
+                        <p>A desktop application UI for a complex video editing suite, prioritizing usability and speed.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase-card" style="--offset-y: -10px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x360/1F2937/9CA3AF?text=Project+Vega" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Vega</h3>
+                        <p>A custom content management system built from the ground up for a major publishing house.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="showcase-card" style="--offset-y: 30px;">
+                <div class="card-inner">
+                    <img src="https://placehold.co/600x400/1F2937/9CA3AF?text=Project+Lyra" alt="Project Screenshot">
+                    <div class="card-content">
+                        <h3>Project Lyra</h3>
+                        <p>A mobile-first web app that connects local artists with galleries and collectors.</p>
+                        <a href="#" class="demo-button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const showcase = document.querySelector('.horizontal-showcase');
+
+        // --- Draggable Scrolling ---
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        showcase.addEventListener('mousedown', (e) => {
+            isDown = true;
+            showcase.style.cursor = 'grabbing';
+            startX = e.pageX - showcase.offsetLeft;
+            scrollLeft = showcase.scrollLeft;
+        });
+
+        showcase.addEventListener('mouseleave', () => {
+            isDown = false;
+            showcase.style.cursor = 'grab';
+        });
+
+        showcase.addEventListener('mouseup', () => {
+            isDown = false;
+            showcase.style.cursor = 'grab';
+        });
+
+        showcase.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - showcase.offsetLeft;
+            const walk = (x - startX) * 2; // The multiplier affects drag speed
+            showcase.scrollLeft = scrollLeft - walk;
+        });
+        
+        // --- 3D Tilt & Glowing Border Effect ---
+        const cards = document.querySelectorAll('.showcase-card');
+        cards.forEach(card => {
+            const cardInner = card.querySelector('.card-inner');
+            
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                // For glowing border
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+
+                // For 3D tilt
+                const { width, height } = rect;
+                const rotateX = (y - height / 2) / 20; // Adjust divisor for less/more tilt
+                const rotateY = (width / 2 - x) / 20;
+                cardInner.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                cardInner.style.transform = 'rotateX(0) rotateY(0)';
+            });
+        });
+    });
+    </script>
+</body>
+</html>

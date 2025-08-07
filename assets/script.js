@@ -34,52 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.nav-link[href="#"]').classList.add('active');
     }
 
-    // --- New: Typography Animation for Hero Paragraph ---
-    const wordsToAnimate = ["responsive", "clean", "modern"];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingSpeed = 150; // Milliseconds per character
-    const deletingSpeed = 100; // Milliseconds per character
-    const delayBeforeDelete = 1500; // Milliseconds to wait before backspacing
-    const delayBeforeType = 500; // Milliseconds to wait before typing next word
 
-   // --- Homepage Specific: Typing Animation ---
-const typingTextElement = document.querySelector('.typing-animation-text');
-// We only run this code if the typing element exists on the page
-if (typingTextElement) {
-    const wordsToAnimate = ["responsive", "clean", "modern"];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingSpeed = 150;
-    const deletingSpeed = 100;
-    const delayBeforeDelete = 1500;
-    const delayBeforeType = 500;
 
-    function typeEffect() {
-        const currentWord = wordsToAnimate[wordIndex];
-        if (isDeleting) {
-            typingTextElement.textContent = currentWord.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingTextElement.textContent = currentWord.substring(0, charIndex + 1);
-            charIndex++;
-        }
-        let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
-        if (!isDeleting && charIndex === currentWord.length) {
-            currentSpeed = delayBeforeDelete;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % wordsToAnimate.length;
-            currentSpeed = delayBeforeType;
-        }
-        setTimeout(typeEffect, currentSpeed);
-    }
-    // Start the effect
-    typeEffect();
-}
 
 
 // --- Project Showcase Horizontal Scroll (NEW) ---
@@ -281,4 +237,46 @@ if (timelineItems.length > 0) {
         observer.observe(item);
     });
 }
+});
+
+// --- Homepage Specific: Typing Animation ---
+document.addEventListener('DOMContentLoaded', () => {
+    const typingTextElement = document.querySelector('.typing-animation-text');
+
+    // We only run this code if the typing element exists on the page
+    if (typingTextElement) {
+        const wordsToAnimate = ["responsive", "clean", "modern"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 150;
+        const deletingSpeed = 100;
+        const delayBeforeDelete = 1500;
+        const delayBeforeType = 500;
+
+        function typeEffect() {
+            const currentWord = wordsToAnimate[wordIndex];
+            if (isDeleting) {
+                typingTextElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingTextElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let currentSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                currentSpeed = delayBeforeDelete;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % wordsToAnimate.length;
+                currentSpeed = delayBeforeType;
+            }
+            setTimeout(typeEffect, currentSpeed);
+        }
+        // Start the effect
+        typeEffect();
+    }
 });

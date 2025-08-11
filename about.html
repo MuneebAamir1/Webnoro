@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
      <header class="navbar">
@@ -32,8 +36,239 @@
         </div>
     </header>
 
+<!-- INCREDIBLE HERO SECTION -->
 
 
+<section class="relative w-screen h-screen bg-[#185945] flex justify-center items-center text-[#F8F9F9] font-['Space Grotesk'] overflow-hidden">
+    <style>
+        /* This style block contains custom keyframes and pseudo-element rules that are not possible with inline Tailwind */
+        
+        /* Digital Noise/Grain Overlay */
+        .grain-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMDAnIGhlaWdodD0nNTAwJz48ZmlsdGVyIGlkPSdhJz48ZmVDb2xvck1hdHJpeCB0eXBlPSdjb252b2x2ZScgY29sb3ItbWF0cml4PScuMzMgLjMzIC4zMyAwIDAgLjMzIC4zMyAuMzMgMCAwIC4zMyAuMzMgLjMzIDAgMCAwIDAgMCAxIDAnIC8+PC9maWx0ZXI+PGZyYWN0YWxOb2lzZSB0eXBlPSdmdXJpZScgYmFzZUZyZXF1ZW5jeT0nLjknIG51bW9jdGF2ZXM9JzgnIHN0aXRjaFRpbGVzPSdzdGl0Y2hRdWFkcmFudCcgLz48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScyNTUlJyBmaWxsPScjZmZmZmZmJyBmaWx0ZXI9J3VybCgjYSknIC8+PC9zdmc+');
+            opacity: 0.05;
+            animation: grain-animation 1s steps(10) infinite;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        @keyframes grain-animation {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -10%); }
+            20% { transform: translate(-15%, 5%); }
+            30% { transform: translate(7%, -25%); }
+            40% { transform: translate(-5%, 20%); }
+            50% { transform: translate(-15%, 10%); }
+            60% { transform: translate(20%, 15%); }
+            70% { transform: translate(5%, -15%); }
+            80% { transform: translate(-10%, 10%); }
+            90% { transform: translate(15%, 5%); }
+        }
+
+        /* Glitch Effect for Headline */
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0d0e12;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
+            opacity: 0.8;
+        }
+
+        .glitch-text::before {
+            text-shadow: 2px 2px #27B89F;
+            animation: glitch-shift 3s infinite alternate;
+        }
+
+        .glitch-text::after {
+            text-shadow: -2px -2px #A8E6CF;
+            animation: glitch-shift-2 4s infinite alternate;
+        }
+
+        @keyframes glitch-shift {
+            0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%); transform: translateX(0); }
+            50% { clip-path: polygon(0 40%, 100% 40%, 100% 70%, 0 70%); transform: translateX(5px); }
+        }
+
+        @keyframes glitch-shift-2 {
+            0%, 100% { clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%); transform: translateX(0); }
+            50% { clip-path: polygon(0 20%, 100% 20%, 100% 50%, 0 50%); transform: translateX(-5px); }
+        }
+        .w-screen {
+    width: 98.81vw !important;
+    height: 70vh !important;
+}
+    </style>
+
+    <canvas id="future-canvas" class="absolute top-0 left-0 w-full h-full z-10"></canvas>
+    
+    <div class="content-container relative z-20 flex flex-col items-center text-center max-w-4xl px-5">
+        <h1 class="future-headline glitch-text text-5xl md:text-6xl font-bold leading-tight relative" data-text="Crafting the Future, Line by Line">
+            Crafting the Future, Line by Line
+        </h1>
+        <div class="mt-5">
+            <p class="statement-item font-['Sora'] text-base md:text-xl leading-relaxed opacity-0 my-2 text-gray-400">Decentralized, scalable platforms by design.</p>
+            <p class="statement-item font-['Sora'] text-base md:text-xl leading-relaxed opacity-0 my-2 text-gray-400">Hyper-optimized digital ecosystems.</p>
+            <p class="statement-item font-['Sora'] text-base md:text-xl leading-relaxed opacity-0 my-2 text-gray-400">We build systems that learn and adapt.</p>
+            <p class="statement-item font-['Sora'] text-base md:text-xl leading-relaxed opacity-0 my-2 text-gray-400">Collaborative, ethical, user-first development.</p>
+        </div>
+        <a href="#projects" class="mt-10 px-6 py-3 text-base md:text-lg no-underline text-[#F8F9F9] bg-transparent border border-[#27B89F] rounded-full shadow-lg shadow-[#27B89F]/50 transition-all duration-300 hover:bg-[#27B89F] hover:text-[#0d0e12] hover:shadow-xl">
+            Explore the Protocol →
+        </a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('future-canvas');
+    const ctx = canvas.getContext('2d');
+    const statements = document.querySelectorAll('.statement-item');
+    const contentContainer = document.querySelector('.content-container');
+
+    let mouse = { x: null, y: null };
+    const particles = [];
+    const particleCount = window.innerWidth > 768 ? 150 : 75;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+    });
+
+    window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    // Particle class
+    class Particle {
+        constructor(x, y) {
+            this.x = x || Math.random() * canvas.width;
+            this.y = y || Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.baseX = this.x;
+            this.baseY = this.y;
+            this.density = (Math.random() * 30) + 1;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(39, 184, 159, ${this.size / 3})`;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = '#27B89F';
+            ctx.fill();
+        }
+
+        update() {
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            let forceDirectionX = dx / distance;
+            let forceDirectionY = dy / distance;
+            let maxDistance = mouse.x ? 100 : 150;
+            let force = (maxDistance - distance) / maxDistance;
+            let directionX = forceDirectionX * force * this.density;
+            let directionY = forceDirectionY * force * this.density;
+
+            if (distance < maxDistance) {
+                this.x -= directionX;
+                this.y -= directionY;
+            } else {
+                if (this.x !== this.baseX) {
+                    let dx = this.x - this.baseX;
+                    this.x -= dx / 10;
+                }
+                if (this.y !== this.baseY) {
+                    let dy = this.y - this.baseY;
+                    this.y -= dy / 10;
+                }
+            }
+        }
+    }
+
+    function init() {
+        particles.length = 0;
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+    init();
+
+    // Connect particles with lines
+    function connect() {
+        let opacityValue = 1;
+        for (let a = 0; a < particles.length; a++) {
+            for (let b = a; b < particles.length; b++) {
+                let distance = Math.sqrt(Math.pow(particles[a].x - particles[b].x, 2) + Math.pow(particles[a].y - particles[b].y, 2));
+                if (distance < 120) {
+                    opacityValue = 1 - (distance / 120);
+                    ctx.strokeStyle = `rgba(168, 230, 207, ${opacityValue})`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[a].x, particles[a].y);
+                    ctx.lineTo(particles[b].x, particles[b].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    // Main animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < particles.length; i++) {
+            particles[i].update();
+            particles[i].draw();
+        }
+        connect();
+    }
+    animate();
+
+    // Typewriter effect for sub-statements
+    let statementIndex = 0;
+    const typeWriterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                function showNextStatement() {
+                    if (statementIndex < statements.length) {
+                        const currentStatement = statements[statementIndex];
+                        currentStatement.style.opacity = 1;
+                        // For a more advanced typewriter effect, you could animate each letter
+                        // For now, a simple fade-in is used
+                        currentStatement.style.transition = 'opacity 1s ease';
+                        statementIndex++;
+                        setTimeout(showNextStatement, 1000); // Delay between statements
+                    }
+                }
+                showNextStatement();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    typeWriterObserver.observe(contentContainer);
+});
+</script>
+
+<!-- INCREDIBLE HERO SECTION END -->
 
 <section class="who-we-are-section">
     <div class="container">
@@ -59,47 +294,124 @@
     </div>
 </section>
 
-<section class="team-section">
-    <div class="container">
-        <h2 class="section-heading">Meet Our Innovators</h2>
-        <p class="team-intro-paragraph">
-            Behind every successful project at Webnoro is a dedicated team of passionate experts. We believe in collaboration, creativity, and continuous learning. Get to know the faces driving your digital future.
-        </p>
 
-        <div class="team-members-grid">
-            <div class="team-member-card">
-                <div class="member-photo-wrapper">
-                    <img src="img/muneeb.jpg" alt="Muneeb - Co-Founder & Lead Developer" class="member-photo">
-                </div>
-                <h3 class="member-name">Muneeb</h3>
-                <p class="member-role">Co-Founder & Lead Developer</p>
-                <p class="member-bio">
-                    Muneeb is the architectural mastermind behind Webnoro's robust backend systems and complex functionalities. With a knack for efficient code and a passion for problem-solving, he ensures our solutions are not just innovative but also scalable and secure.
-                </p>
-                <div class="member-social-links">
-                    <a href="#" class="social-icon" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+<section
+    class="values-section relative w-full py-28 px-5 overflow-hidden"
+>
+    <div class="absolute inset-0 z-0 overflow-hidden">
+        <div class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-[#A8E6CF] rounded-full opacity-30 filter blur-3xl"></div>
+        <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-[#27B89F] rounded-full opacity-20 filter blur-3xl"></div>
+    </div>
+
+    <div class="values-container relative z-10 max-w-7xl mx-auto text-center">
+        <h2 class="values-title text-4xl md:text-5xl lg:text-6xl font-extrabold mb-20 text-[#2C2C2C]">
+            Our Core Values
+        </h2>
+
+        <div class="values-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            
+            <div
+                class="value-card opacity-0 transform translate-y-10 transition-all duration-700 ease-out"
+                style="--delay: 0.1s;"
+            >
+                <div class="card-inner-content h-full p-8 text-left rounded-2xl bg-white/60 backdrop-blur-xl border border-white/20 shadow-lg transition-transform duration-100 ease-out">
+                    <div class="card-icon w-16 h-16 mb-5" style="animation: floatIcon 4s infinite alternate ease-in-out;">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L9 9H2l7 5-3 8 7-5 7 5-3-8 7-5h-7L12 2z" stroke="#27B89F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(39,184,159,0.1)"/></svg>
                     </div>
-            </div>
-
-            <div class="team-member-card">
-                <div class="member-photo-wrapper">
-                    <img src="https://via.placeholder.com/200/149B87/FFFFFF?text=Aneeb" alt="Aneeb - Co-Founder & Lead Designer" class="member-photo">
+                    <h3 class="text-2xl font-bold text-[#2C2C2C] mb-2">Innovation</h3>
+                    <p class="text-base text-[#4F5E59] leading-relaxed">
+                        We push boundaries and challenge the status quo to build solutions that are not just current, but future-proof.
+                    </p>
                 </div>
-                <h3 class="member-name">Aneeb</h3>
-                <p class="member-role">Co-Founder & Lead Designer</p>
-                <p class="member-bio">
-                    Aneeb is the visionary artist shaping Webnoro's captivating user experiences and intuitive interfaces. His expertise in modern design principles ensures every digital product is not only beautiful but also highly engaging and user-friendly.
-                </p>
-                <div class="member-social-links">
-                    <a href="#" class="social-icon" aria-label="LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-icon" aria-label="Behance Profile"><i class="fab fa-behance"></i></a>
-                    </div>
             </div>
 
+            <div
+                class="value-card opacity-0 transform translate-y-10 transition-all duration-700 ease-out"
+                style="--delay: 0.2s;"
+            >
+                <div class="card-inner-content h-full p-8 text-left rounded-2xl bg-white/60 backdrop-blur-xl border border-white/20 shadow-lg transition-transform duration-100 ease-out">
+                    <div class="card-icon w-16 h-16 mb-5" style="animation: floatIcon 4s infinite alternate ease-in-out;">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#27B89F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(39,184,159,0.1)"/><path d="M12 16V12" stroke="#A8E6CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 8H12.01" stroke="#A8E6CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#2C2C2C] mb-2">Quality</h3>
+                    <p class="text-base text-[#4F5E59] leading-relaxed">
+                        Our commitment to excellence ensures every line of code and every pixel is crafted with precision and care.
+                    </p>
+                </div>
             </div>
+
+            <div
+                class="value-card opacity-0 transform translate-y-10 transition-all duration-700 ease-out"
+                style="--delay: 0.3s;"
+            >
+                <div class="card-inner-content h-full p-8 text-left rounded-2xl bg-white/60 backdrop-blur-xl border border-white/20 shadow-lg transition-transform duration-100 ease-out">
+                     <div class="card-icon w-16 h-16 mb-5" style="animation: floatIcon 4s infinite alternate ease-in-out;">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#27B89F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="rgba(39,184,159,0.1)"/><circle cx="9" cy="7" r="4" stroke="#A8E6CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75" stroke="#A8E6CF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#2C2C2C] mb-2">Partnership</h3>
+                    <p class="text-base text-[#4F5E59] leading-relaxed">
+                        We believe in collaboration. Your success is our success, and we work as a true extension of your team.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <a href="#" class="inline-block mt-20 py-4 px-9 bg-transparent text-[#27B89F] border-2 border-[#27B89F] rounded-full no-underline font-bold transition-all duration-300 hover:bg-[#27B89F] hover:text-white hover:shadow-lg"
+           style="animation: pulseGlow 2s infinite alternate;">
+            Discover the Webnoro Way
+        </a>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- SCROLL-REVEAL FOR THE SECTION ---
+    const valuesSection = document.querySelector('.values-section');
+    if (valuesSection) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                const cards = entry.target.querySelectorAll('.value-card');
+                if (entry.isIntersecting) {
+                    cards.forEach((card, index) => {
+                        // Use the --delay custom property from the HTML style attribute
+                        setTimeout(() => {
+                            card.classList.remove('opacity-0', 'translate-y-10');
+                        }, index * 150);
+                    });
+                    observer.unobserve(valuesSection);
+                }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(valuesSection);
+    }
+    
+    // --- 3D TILT EFFECT FOR CARDS ---
+    const cards = document.querySelectorAll('.value-card');
+    cards.forEach(card => {
+        const cardInner = card.querySelector('.card-inner-content');
+        
+        card.addEventListener('mousemove', (e) => {
+            if (window.innerWidth < 1024) return; // Disable effect on tablet/mobile
+
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const { width, height } = rect;
+            const rotateX = (height / 2 - y) / 30; // Reduced sensitivity
+            const rotateY = (x - width / 2) / 30;
+            
+            cardInner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+             cardInner.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
+    });
+
+});
+</script>
     
 <section class="tech-stack-section">
     <div class="container">

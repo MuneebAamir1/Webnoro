@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="assets/services.css">
   <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /> 
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Orbitron:wght@800&display=swap" rel="stylesheet">
 
 <style>
 .section-heading {
@@ -213,68 +216,104 @@
 </section>
 
 
-<section class="modern-timeline-section">
-  <div class="container">
-    <h2 class="section-title">Our Work Process</h2>
-    <div class="timeline">
+<section class="workflow-section">
+    <h2 class="workflow-heading" data-text="How We Build Magic">How We Build Magic</h2>
 
-      <!-- Step 1 -->
-      <div class="timeline-item left">
-        <div class="content">
-          <div class="icon"><img src="img/discovery.svg" alt="Discovery"></div>
-          <h3>Discovery</h3>
-          <p>We understand your goals, target audience, and core requirements to shape a clear project vision.</p>
-        </div>
-      </div>
+    <div class="workflow-timeline">
 
-      <!-- Step 2 -->
-      <div class="timeline-item right">
-        <div class="content">
-          <div class="icon"><img src="img/design.svg" alt="Design"></div>
-          <h3>Design</h3>
-          <p>We create user-friendly, aesthetic layouts tailored to your brand using modern design tools.</p>
-        </div>
-      </div>
+        <svg class="svg-connector" viewBox="0 0 800 1100">
+            <path id="workflow-path" d="M 400 60 C 100 120, 100 280, 400 340 C 700 400, 700 560, 400 620 C 100 680, 100 840, 400 900 C 700 960, 700 1020, 400 1080"/>
+        </svg>
 
-      <!-- Step 3 -->
-      <div class="timeline-item left">
-        <div class="content">
-          <div class="icon"><img src="img/programming-icon.svg" alt="Development"></div>
-          <h3>Development</h3>
-          <p>We turn designs into functional websites or web apps using the latest technologies and best practices.</p>
-        </div>
-      </div>
+        <article class="workflow-step">
+            <span class="step-counter">01</span>
+            <div class="step-content">
+                <h3>Discover</h3>
+                <p>We dive deep into your goals, audience, and challenges to build a solid strategic foundation for the project.</p>
+            </div>
+        </article>
 
-      <!-- Step 4 -->
-      <div class="timeline-item right">
-        <div class="content">
-          <div class="icon"><img src="img/test.svg" alt="Testing"></div>
-          <h3>Testing</h3>
-          <p>We test across devices and browsers to ensure quality, performance, and smooth functionality.</p>
-        </div>
-      </div>
+        <article class="workflow-step">
+            <span class="step-counter">02</span>
+            <div class="step-content">
+                <h3>Design</h3>
+                <p>Our creative team designs a stunning, user-friendly interface that brings your vision to life through wireframes and mockups.</p>
+            </div>
+        </article>
 
-      <!-- Step 5 -->
-      <div class="timeline-item left">
-        <div class="content">
-          <div class="icon"><img src="img/launch-svgrepo-com.svg" alt="Launch"></div>
-          <h3>Launch</h3>
-          <p>After your approval, we launch your project live — optimized and ready to perform.</p>
-        </div>
-      </div>
+        <article class="workflow-step">
+            <span class="step-counter">03</span>
+            <div class="step-content">
+                <h3>Develop</h3>
+                <p>Our developers write clean, efficient code to build a fast, secure, and reliable website or application.</p>
+            </div>
+        </article>
 
-      <!-- Step 6 -->
-      <div class="timeline-item right">
-        <div class="content">
-          <div class="icon"><img src="img/support.svg" alt="Support"></div>
-          <h3>Ongoing Support</h3>
-          <p>We provide maintenance, updates, and guidance to keep your website running smoothly.</p>
-        </div>
-      </div>
+        <article class="workflow-step">
+            <span class="step-counter">04</span>
+            <div class="step-content">
+                <h3>Launch</h3>
+                <p>After rigorous testing and quality assurance, we deploy your project to the world and monitor its performance.</p>
+            </div>
+        </article>
 
     </div>
-  </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- SCROLL-REVEAL FOR WORKFLOW STEPS ---
+    const steps = document.querySelectorAll('.workflow-step');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, {
+        threshold: 0.5 // Trigger when 50% of the element is visible
+    });
+    steps.forEach(step => observer.observe(step));
+
+
+    // --- SVG PATH DRAWING ANIMATION ---
+    const path = document.querySelector('#workflow-path');
+    if (path) {
+        const pathLength = path.getTotalLength();
+
+        // Initial setup
+        path.style.strokeDasharray = pathLength;
+        path.style.strokeDashoffset = pathLength;
+
+        const handleScroll = () => {
+            // Only run on desktop
+            if (window.innerWidth < 768) {
+                path.style.strokeDashoffset = 0; // Show full path on mobile
+                return;
+            }
+
+            const section = document.querySelector('.workflow-section');
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const scrollPosition = window.scrollY;
+            const viewportHeight = window.innerHeight;
+
+            // Calculate how far into the section the user has scrolled
+            let scrollPercent = (scrollPosition + viewportHeight / 2 - sectionTop) / sectionHeight;
+            scrollPercent = Math.max(0, Math.min(1, scrollPercent)); // Clamp between 0 and 1
+
+            const drawLength = pathLength * scrollPercent;
+            path.style.strokeDashoffset = pathLength - drawLength;
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        // Initial check in case the page loads scrolled down
+        handleScroll();
+    }
+});
+</script>
+<!-- end of workfow section -->
 
 
 <section class="radial-client-section">

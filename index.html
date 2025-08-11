@@ -145,7 +145,7 @@
             <div class="project-showcase-wrapper">
                 <div class="project-scroll-container">
                     <a href="project-page-1.html" class="project-module wide" data-aos="fade-left">
-                        <img src="https://placehold.co/600x400" alt="Web Design Project" class="project-media">
+                        <img src="img/scholarSphere.png" alt="Web Design Project" class="project-media">
                         <div class="project-overlay">
                             <h3 class="project-title">Modern Website</h3>
                             <p class="project-keywords">Web Design, UI/UX</p>
@@ -153,26 +153,26 @@
                     </a>
 
                     <a href="project-page-3.html" class="project-module wide" data-aos="fade-left" data-aos-delay="200">
-                        <img src="https://placehold.co/600x400" alt="Web Application Project" class="project-media">
+                        <img src="img/campusconect.png" alt="Web Application Project" class="project-media">
                         <div class="project-overlay">
-                            <h3 class="project-title">SaaS Platform</h3>
+                            <h3 class="project-title">Personalized chatting app</h3>
                             <p class="project-keywords">Web App, Backend</p>
                         </div>
                     </a>
 
-                    <a href="project-page-4.html" class="project-module wide" data-aos="fade-left" data-aos-delay="300">
-                        <img src="https://placehold.co/600x400" alt="UI Animation Project" class="project-media">
+                    <a href="project-page-4.html" class="project-module tall" data-aos="fade-left" data-aos-delay="300">
+                        <img src="img/admin-panel.PNG" alt="UI Animation Project" class="project-media">
                         <div class="project-overlay">
-                            <h3 class="project-title">Animated UI</h3>
-                            <p class="project-keywords">UI/UX, Animation</p>
+                            <h3 class="project-title">Admin panel</h3>
+                            <p class="project-keywords">To manage chatting app</p>
                         </div>
                     </a>
 
                      <a href="project-page-6.html" class="project-module wide" data-aos="fade-left" data-aos-delay="500">
-                        <img src="https://placehold.co/600x400" alt="Logo Design Project" class="project-media">
+                        <img src="img/car.png" alt="Logo Design Project" class="project-media">
                         <div class="project-overlay">
-                            <h3 class="project-title">Landing page</h3>
-                            <p class="project-keywords">Branding, Identity</p>
+                            <h3 class="project-title">Car rental system</h3>
+                            <p class="project-keywords">Web app, Backend</p>
                         </div>
                     </a>
 
@@ -257,6 +257,38 @@
   </div>
 </footer>
 
+
+
+
+
+
+
+
+<!-- Popup Modal -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-modal">
+    <button class="popup-close" id="popup-close">&times;</button>
+    <h2 class="popup-heading">Challenge Me 💡</h2>
+    <p class="popup-text">Think you’ve got a crazy idea?<br> Let’s solve it together.</p>
+
+    <!-- Contact Form -->
+    <form class="popup-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Brief Message" rows="3" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Calendly Button -->
+    <div class="calendly-wrapper">
+      <a href="https://calendly.com/webnoro-studio/30min?hide_gdpr_banner=1" target="_blank" class="calendly-btn">
+        📅 Schedule a Free Meeting
+      </a>
+    </div>
+  </div>
+</div>
+
+
     <script src="assets/script.js"></script>
 
     <!--Start of Tawk.to Script-->
@@ -272,5 +304,32 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+
+<script>
+  const triggerBtn = document.querySelector('.cta-button');
+  const popup = document.getElementById('popup');
+  const closeBtn = document.getElementById('popup-close');
+
+  triggerBtn.addEventListener('click', () => {
+    popup.style.display = 'flex';
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popup.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      popup.style.display = 'none';
+    }
+  });
+</script>
+
+<!-- Calendly badge widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/webnoro-studio/30min?hide_gdpr_banner=1&background_color=408e7b&text_color=ffffff&primary_color=00ffcf', text: 'Schedule a free meeting', color: '#6dc7b5', textColor: '#c2cdc7', branding: true }); }</script>
+<!-- Calendly badge widget end -->
 </body>
 </html>

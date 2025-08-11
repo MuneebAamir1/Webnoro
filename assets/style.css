@@ -1458,3 +1458,132 @@ animation: float 3s ease-in-out infinite, glowPulse 2.5s ease-in-out infinite;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   margin-top: 40px;
 }
+
+
+
+
+/* Popup Styles */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(105, 181, 173, 0.464);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(5px);
+}
+
+.popup-modal {
+  background: linear-gradient(135deg, #00584beb, #79d8cf);
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 90%;
+  width: 500px;
+  max-height: 500px;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 30px rgba(39, 184, 159, 0.4);
+  animation: float 4s ease-in-out infinite;
+}
+
+.popup-heading {
+  color: #A8E6CF;
+  font-size: 24px;
+  margin-bottom: 10px;
+  animation: glitch 13s infinite;
+}
+
+.popup-text {
+  color: #F8F9F9;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Contact Form */
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.popup-form input,
+.popup-form textarea {
+  background: #18664fcd;
+  border: 1px solid #27B89F;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.popup-form button {
+  background-color: #27B89F;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #A8E6CF;
+  cursor: pointer;
+}
+
+/* Calendly Button */
+.calendly-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.calendly-btn {
+  display: inline-block;
+  background-color: #148c70;
+  color: #F8F9F9;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.calendly-btn:hover {
+  background-color: #27B89F;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Glitch Animation */
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 2px #27B89F, -2px -2px #A8E6CF;
+  }
+  20% {
+    text-shadow: -2px 2px #A8E6CF, 2px -2px #27B89F;
+  }
+  40% {
+    text-shadow: 2px -2px #A8E6CF, -2px 2px #27B89F;
+  }
+  60% {
+    text-shadow: -2px -2px #A8E6CF, 2px 2px #27B89F;
+  }
+  100% {
+    text-shadow: 2px 2px #27B89F, -2px -2px #A8E6CF;
+  }
+}

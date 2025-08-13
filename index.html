@@ -28,7 +28,7 @@
     <header class="navbar">
         <div class="navbar-container">
             <a href="#" class="navbar-logo">
-                <img src="img/logo.png" alt="Your Logo">
+                <img src="img/logo.png" alt="Logo">
             </a>
 
             <button class="hamburger-icon" aria-label="Toggle navigation">
@@ -146,7 +146,7 @@
             <div class="project-showcase-wrapper">
                 <div class="project-scroll-container">
                     <a href="project-page-1.html" class="project-module wide" data-aos="fade-left">
-                        <img src="img/scholarSphere.png" alt="Web Design Project" class="project-media">
+                        <img src="img/scholarSphere.png" alt="Web Design Project" class="project-media" loading="lazy">
                         <div class="project-overlay">
                             <h3 class="project-title">Modern Website</h3>
                             <p class="project-keywords">Web Design, UI/UX</p>
@@ -154,7 +154,7 @@
                     </a>
 
                     <a href="project-page-3.html" class="project-module wide" data-aos="fade-left" data-aos-delay="200">
-                        <img src="img/campusconect.png" alt="Web Application Project" class="project-media">
+                        <img src="img/campusconect.png" alt="Web Application Project" class="project-media" loading="lazy">
                         <div class="project-overlay">
                             <h3 class="project-title">Personalized chatting app</h3>
                             <p class="project-keywords">Web App, Backend</p>
@@ -162,7 +162,7 @@
                     </a>
 
                     <a href="project-page-4.html" class="project-module tall" data-aos="fade-left" data-aos-delay="300">
-                        <img src="img/admin-panel.PNG" alt="UI Animation Project" class="project-media">
+                        <img src="img/admin-panel.PNG" alt="UI Animation Project" class="project-media" loading="lazy">
                         <div class="project-overlay">
                             <h3 class="project-title">Admin panel</h3>
                             <p class="project-keywords">To manage chatting app</p>
@@ -170,7 +170,7 @@
                     </a>
 
                      <a href="project-page-6.html" class="project-module wide" data-aos="fade-left" data-aos-delay="500">
-                        <img src="img/car.png" alt="Logo Design Project" class="project-media">
+                        <img src="img/car.png" alt="Logo Design Project" class="project-media" loading="lazy">
                         <div class="project-overlay">
                             <h3 class="project-title">Car rental system</h3>
                             <p class="project-keywords">Web app, Backend</p>
@@ -226,30 +226,26 @@
     <div class="footer-links">
       <h4>Company</h4>
       <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Our Team</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Blog</a></li>
+        <li><a href="about.html">About Us</a></li>
       </ul>
     </div>
     <div class="footer-links">
       <h4>Services</h4>
       <ul>
-        <li><a href="#">Web Development</a></li>
-        <li><a href="#">UI/UX Design</a></li>
-        <li><a href="#">SEO Optimization</a></li>
-        <li><a href="#">Maintenance</a></li>
+        <li><a href="services.html">Web Development</a></li>
+        <li><a href="services.html">UI/UX Design</a></li>
+        <li><a href="services.html">SEO Optimization</a></li>
+        <li><a href="services.html">Maintenance</a></li>
       </ul>
     </div>
     <div class="footer-contact">
       <h4>Contact</h4>
       <p>Email: hello@webnoro.com</p>
-      <p>WhatsApp: +123 456 789</p>
+      <p>WhatsApp: +92 319 056 0306</p>
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
+  <a href="https://wa.me/03190560306" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://linkedin.com/webnoro"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
@@ -258,36 +254,6 @@
   </div>
 </footer>
 
-
-
-
-
-
-
-
-<!-- Popup Modal -->
-<div class="popup-overlay" id="popup">
-  <div class="popup-modal">
-    <button class="popup-close" id="popup-close">&times;</button>
-    <h2 class="popup-heading">Challenge Me 💡</h2>
-    <p class="popup-text">Think you’ve got a crazy idea?<br> Let’s solve it together.</p>
-
-    <!-- Contact Form -->
-    <form class="popup-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Brief Message" rows="3" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-
-    <!-- Calendly Button -->
-    <div class="calendly-wrapper">
-      <a href="https://calendly.com/webnoro-studio/30min?hide_gdpr_banner=1" target="_blank" class="calendly-btn">
-        📅 Schedule a Free Meeting
-      </a>
-    </div>
-  </div>
-</div>
 
 
     <script src="assets/script.js"></script>
@@ -306,26 +272,6 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
 
-
-<script>
-  const triggerBtn = document.querySelector('.cta-button');
-  const popup = document.getElementById('popup');
-  const closeBtn = document.getElementById('popup-close');
-
-  triggerBtn.addEventListener('click', () => {
-    popup.style.display = 'flex';
-  });
-
-  closeBtn.addEventListener('click', () => {
-    popup.style.display = 'none';
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === popup) {
-      popup.style.display = 'none';
-    }
-  });
-</script>
 
 <!-- Calendly badge widget begin -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">

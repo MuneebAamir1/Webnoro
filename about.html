@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About US</title>
+    <title>About Webnoro | what is webnoro?</title>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/about.css">
@@ -12,11 +12,50 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap" rel="stylesheet">
+        <meta name="description" content="Muhammad Muneeb Aamir, Founder of Webnoro, leads frontend development and UX/UI design. Expert in web design, responsive websites, digital solutions, and user experience.">
+    <meta name="keywords" content="Muhammad Muneeb Aamir, Founder of Webnoro, web developer, web designer, frontend developer, UX/UI expert, responsive websites, digital solutions, web development services, website design, webnoro">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="About webnoro | what is webnoro?">
+    <meta property="og:description" content="Muhammad Muneeb Aamir, Founder of Webnoro, leads frontend development and UX/UI design. Expert in web design, responsive websites, digital solutions, and user experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webnoro.com/about.html">
+    <meta property="og:image" content="https://webnoro.com/img/og.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About webnoro | What is Webnoro?">
+    <meta name="twitter:description" content="Muhammad Muneeb Aamir, Founder of Webnoro, leads frontend development and UX/UI design. Expert in web design, responsive websites, digital solutions, and user experience.">
+    <meta name="twitter:image" content="https://webnoro.com/img/og.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://webnoro.com/about">
+       <!-- Structured Data / JSON-LD for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Muhammad Muneeb Aamir",
+      "jobTitle": "Founder & Lead Frontend Developer",
+      "url": "https://webnoro.com/about",
+      "sameAs": [
+        "https://www.linkedin.com/in/muneebaamir",
+        "https://twitter.com/webnoro",
+        "https://www.facebook.com/webnoro"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Webnoro",
+        "url": "https://webnoro.com"
+      },
+      "description": "Muhammad Muneeb Aamir, Founder of Webnoro, leads frontend development and UX/UI design. Expert in web design, responsive websites, digital solutions, and user experience."
+    }
+    </script>
 </head>
 <body>
      <header class="navbar">
         <div class="navbar-container">
-            <a href="#" class="navbar-logo">
+            <a href="index.html" class="navbar-logo">
                 <img src="img/logo.png" alt="Logo" loading="lazy">
             </a>
 
@@ -36,240 +75,71 @@
         </div>
     </header>
 
-<!-- INCREDIBLE HERO SECTION -->
 
 
-<section class="relative w-screen h-screen bg-[#185945] flex justify-center items-center text-[#F8F9F9] font-['Space Grotesk'] overflow-hidden">
-    <style>
-        /* This style block contains custom keyframes and pseudo-element rules that are not possible with inline Tailwind */
-        
-        /* Digital Noise/Grain Overlay */
-        .grain-overlay::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSczMDAnIGhlaWdodD0nNTAwJz48ZmlsdGVyIGlkPSdhJz48ZmVDb2xvck1hdHJpeCB0eXBlPSdjb252b2x2ZScgY29sb3ItbWF0cml4PScuMzMgLjMzIC4zMyAwIDAgLjMzIC4zMyAuMzMgMCAwIC4zMyAuMzMgLjMzIDAgMCAwIDAgMCAxIDAnIC8+PC9maWx0ZXI+PGZyYWN0YWxOb2lzZSB0eXBlPSdmdXJpZScgYmFzZUZyZXF1ZW5jeT0nLjknIG51bW9jdGF2ZXM9JzgnIHN0aXRjaFRpbGVzPSdzdGl0Y2hRdWFkcmFudCcgLz48cmVjdCB3aWR0aD0nMTAwJScgaGVpZ2h0PScyNTUlJyBmaWxsPScjZmZmZmZmJyBmaWx0ZXI9J3VybCgjYSknIC8+PC9zdmc+');
-            opacity: 0.05;
-            animation: grain-animation 1s steps(10) infinite;
-            z-index: 3;
-            pointer-events: none;
-        }
 
-        @keyframes grain-animation {
-            0%, 100% { transform: translate(0, 0); }
-            10% { transform: translate(-5%, -10%); }
-            20% { transform: translate(-15%, 5%); }
-            30% { transform: translate(7%, -25%); }
-            40% { transform: translate(-5%, 20%); }
-            50% { transform: translate(-15%, 10%); }
-            60% { transform: translate(20%, 15%); }
-            70% { transform: translate(5%, -15%); }
-            80% { transform: translate(-10%, 10%); }
-            90% { transform: translate(15%, 5%); }
-        }
 
-        /* Glitch Effect for Headline */
-        .glitch-text::before,
-        .glitch-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #0d0e12;
-            overflow: hidden;
-            clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%);
-            opacity: 0.8;
-        }
 
-        .glitch-text::before {
-            text-shadow: 2px 2px #27B89F;
-            animation: glitch-shift 3s infinite alternate;
-        }
+<!-- ----------founder info------------- -->
 
-        .glitch-text::after {
-            text-shadow: -2px -2px #A8E6CF;
-            animation: glitch-shift-2 4s infinite alternate;
-        }
 
-        @keyframes glitch-shift {
-            0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 30%, 0 30%); transform: translateX(0); }
-            50% { clip-path: polygon(0 40%, 100% 40%, 100% 70%, 0 70%); transform: translateX(5px); }
-        }
+<section class="visionaries-section" style=" background-color:  #f4fefe;
+            font-family: 'Manrope', sans-serif;
+            color: #F8F9F9;
+            margin: 0;
+            padding: 0;">
+    <div class="visionaries-bg"></div>
+    <div class="visionaries-container">
+        <h2 class="visionaries-title">👥 Meet the Visionaries Behind Webnoro</h2>
+        <div class="visionaries-grid">
 
-        @keyframes glitch-shift-2 {
-            0%, 100% { clip-path: polygon(0 70%, 100% 70%, 100% 100%, 0 100%); transform: translateX(0); }
-            50% { clip-path: polygon(0 20%, 100% 20%, 100% 50%, 0 50%); transform: translateX(-5px); }
-        }
-        .w-screen {
-    width: 98.81vw !important;
-    height: 70vh !important;
-}
-    </style>
+            <div class="profile-card profile-card--founder">
+                <img src="img/muneeb.png" alt="Profile photo of the Founder of webnoro" class="profile-photo">
+                <h3>Muneeb Aamir</h3>
+                <p class="role">Founder & Frontend Lead</p>
+                <blockquote class="quote">Pixels are my playground; I craft interfaces that speak, move, and engage.</blockquote>
+                <p class="bio">We’re at the forefront of digital design, turning creative ideas into stunning, responsive, and user-friendly interfaces. I lead frontend development and UX/UI innovation, ensuring every website we build is visually engaging, fast, and conversion-ready. Our mission: make digital experiences that users love and remember.</p>
+                <div class="profile-socials">
+                    <a href="www.linkedin.com/in/muneebaamir" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:muneeb@webnoro.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
 
-    <canvas id="future-canvas" class="absolute top-0 left-0 w-full h-full z-10"></canvas>
-    
-    <div class="content-container relative z-20 flex flex-col items-center text-center max-w-4xl px-5">
-        <h1 class="future-headline glitch-text text-5xl md:text-6xl font-bold leading-tight relative" data-text="Crafting the Future, Line by Line">
-            Crafting the Future, Line by Line
-        </h1>
-        <div class="mt-5">
-            <p class="statement-item font-['Sora'] text-base md:text-xl leading-relaxed opacity-0 my-2 text-gray-400">Decentralized, scalable platforms by design.</p>
-            <p class="statement-item font-['Sora'] text-base md:text-xl leading-relaxed opacity-0 my-2 text-gray-400">Hyper-optimized digital ecosystems.</p>
-            <p class="statement-item font-['Sora'] text-base md:text-xl leading-relaxed opacity-0 my-2 text-gray-400">We build systems that learn and adapt.</p>
-            <p class="statement-item font-['Sora'] text-base md:text-xl leading-relaxed opacity-0 my-2 text-gray-400">Collaborative, ethical, user-first development.</p>
+            <div class="profile-card profile-card--cofounder">
+                <img src="img/aneeb.png" alt="Profile photo of the Co-Founder" class="profile-photo">
+                <h3>Aneeb Kashif</h3>
+                <p class="role">Co-Founder & Backend Lead</p>
+                <blockquote class="quote">Data flows, logic runs, performance wins; I make websites unstoppable.</blockquote>
+                <p class="bio">We’re at the core of digital performance, crafting robust, secure, and scalable backend systems. I lead server-side architecture, database optimization, and seamless integrations, making sure every project runs smoothly and efficiently. Our goal: build web solutions that power business growth and reliability</p>
+                <div class="profile-socials">
+                    <a href="https://www.linkedin.com/in/muhammad-aneeb-kashif-9391a3349/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:aneebkashif@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
         </div>
-        <a href="#projects" class="mt-10 px-6 py-3 text-base md:text-lg no-underline text-[#F8F9F9] bg-transparent border border-[#27B89F] rounded-full shadow-lg shadow-[#27B89F]/50 transition-all duration-300 hover:bg-[#27B89F] hover:text-[#0d0e12] hover:shadow-xl">
-            Explore the Protocol →
-        </a>
     </div>
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('future-canvas');
-    const ctx = canvas.getContext('2d');
-    const statements = document.querySelectorAll('.statement-item');
-    const contentContainer = document.querySelector('.content-container');
-
-    let mouse = { x: null, y: null };
-    const particles = [];
-    const particleCount = window.innerWidth > 768 ? 150 : 75;
-
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.x;
-        mouse.y = e.y;
-    });
-
-    window.addEventListener('mouseout', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-
-    // Particle class
-    class Particle {
-        constructor(x, y) {
-            this.x = x || Math.random() * canvas.width;
-            this.y = y || Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1;
-            this.baseX = this.x;
-            this.baseY = this.y;
-            this.density = (Math.random() * 30) + 1;
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(39, 184, 159, ${this.size / 3})`;
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = '#27B89F';
-            ctx.fill();
-        }
-
-        update() {
-            let dx = mouse.x - this.x;
-            let dy = mouse.y - this.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            let forceDirectionX = dx / distance;
-            let forceDirectionY = dy / distance;
-            let maxDistance = mouse.x ? 100 : 150;
-            let force = (maxDistance - distance) / maxDistance;
-            let directionX = forceDirectionX * force * this.density;
-            let directionY = forceDirectionY * force * this.density;
-
-            if (distance < maxDistance) {
-                this.x -= directionX;
-                this.y -= directionY;
-            } else {
-                if (this.x !== this.baseX) {
-                    let dx = this.x - this.baseX;
-                    this.x -= dx / 10;
+document.addEventListener('DOMContentLoaded', () => {
+    // Scroll-reveal for the section
+    const section = document.querySelector('.visionaries-section');
+    if (section) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    section.classList.add('is-visible');
+                    observer.unobserve(section);
                 }
-                if (this.y !== this.baseY) {
-                    let dy = this.y - this.baseY;
-                    this.y -= dy / 10;
-                }
-            }
-        }
+            });
+        }, { threshold: 0.1 });
+        observer.observe(section);
     }
-
-    function init() {
-        particles.length = 0;
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-    }
-    init();
-
-    // Connect particles with lines
-    function connect() {
-        let opacityValue = 1;
-        for (let a = 0; a < particles.length; a++) {
-            for (let b = a; b < particles.length; b++) {
-                let distance = Math.sqrt(Math.pow(particles[a].x - particles[b].x, 2) + Math.pow(particles[a].y - particles[b].y, 2));
-                if (distance < 120) {
-                    opacityValue = 1 - (distance / 120);
-                    ctx.strokeStyle = `rgba(168, 230, 207, ${opacityValue})`;
-                    ctx.lineWidth = 1;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[a].x, particles[a].y);
-                    ctx.lineTo(particles[b].x, particles[b].y);
-                    ctx.stroke();
-                }
-            }
-        }
-    }
-
-    // Main animation loop
-    function animate() {
-        requestAnimationFrame(animate);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-        }
-        connect();
-    }
-    animate();
-
-    // Typewriter effect for sub-statements
-    let statementIndex = 0;
-    const typeWriterObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                function showNextStatement() {
-                    if (statementIndex < statements.length) {
-                        const currentStatement = statements[statementIndex];
-                        currentStatement.style.opacity = 1;
-                        // For a more advanced typewriter effect, you could animate each letter
-                        // For now, a simple fade-in is used
-                        currentStatement.style.transition = 'opacity 1s ease';
-                        statementIndex++;
-                        setTimeout(showNextStatement, 1000); // Delay between statements
-                    }
-                }
-                showNextStatement();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    typeWriterObserver.observe(contentContainer);
 });
 </script>
 
-<!-- INCREDIBLE HERO SECTION END -->
-
+<!-- ----------founderinfo------- -->
 <section class="who-we-are-section">
     <div class="container">
         <h2 class="section-heading">Who We Are</h2>
@@ -356,7 +226,7 @@
             </div>
 
         </div>
-        <a href="#" class="inline-block mt-20 py-4 px-9 bg-transparent text-[#27B89F] border-2 border-[#27B89F] rounded-full no-underline font-bold transition-all duration-300 hover:bg-[#27B89F] hover:text-white hover:shadow-lg"
+        <a href="contact.html" class="inline-block mt-20 py-4 px-9 bg-transparent text-[#27B89F] border-2 border-[#27B89F] rounded-full no-underline font-bold transition-all duration-300 hover:bg-[#27B89F] hover:text-white hover:shadow-lg"
            style="animation: pulseGlow 2s infinite alternate;">
             Discover the Webnoro Way
         </a>
@@ -498,7 +368,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
   <a href="https://wa.me/03190560306" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://linkedin.com/webnoro"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://linkedin.com/muneebaamir"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
   </div>
